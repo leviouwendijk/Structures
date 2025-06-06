@@ -26,7 +26,7 @@ let package = Package(
         .target(
             name: "Structures",
             dependencies: [
-                .product(name: "plate", package: "plate")
+                .product(name: "plate", package: "plate"),
             ],
             resources: [
                 .process("Resources")
@@ -36,7 +36,7 @@ let package = Package(
             name: "StructuresTests",
             dependencies: [
                 "Structures",
-                .product(name: "plate", package: "plate")
+                .product(name: "plate", package: "plate"),
             ]
         ),
     ]
