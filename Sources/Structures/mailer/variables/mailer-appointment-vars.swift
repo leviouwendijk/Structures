@@ -23,7 +23,7 @@ public struct MailerAPIAppointmentVariables: Encodable {
 }
 
 // content of appointment var 
-public struct MailerAPIAppointmentContent: Encodable {
+public struct MailerAPIAppointmentContent: Encodable, Identifiable {
     public let id:       UUID
     public let date:     String
     public let time:     String
