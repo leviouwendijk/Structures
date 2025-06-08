@@ -24,6 +24,7 @@ public struct MailerAPIAppointmentVariables: Encodable {
 
 // content of appointment var 
 public struct MailerAPIAppointmentContent: Encodable {
+    public let id:       UUID
     public let date:     String
     public let time:     String
     public let day:      String
@@ -33,6 +34,7 @@ public struct MailerAPIAppointmentContent: Encodable {
     public let location: String
 
     public init(
+        id:       UUID = UUID(),
         date:     String,
         time:     String,
         day:      String,
@@ -41,6 +43,7 @@ public struct MailerAPIAppointmentContent: Encodable {
         area:     String,
         location: String
     ) {
+        self.id       = id
         self.date     = date
         self.time     = time
         self.day      = day
