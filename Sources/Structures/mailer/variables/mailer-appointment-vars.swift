@@ -50,3 +50,25 @@ public struct MailerAPIAppointmentContent: Encodable {
         self.location = location
     }
 }
+
+extension Array where Element == MailerAPIAppointmentContent {
+    public func jsonString() -> String {
+        appointmentsQueueToJSON(self)
+    }
+}
+
+public func appointmentsQueueToJSON(_ appointments: [MailerAPIAppointmentContent]) -> String {
+    let encoder = JSONEncoder()
+    do {
+        let jsonData = try encoder.encode(appointments)
+        var jsonString = String(data: jsonData, encoding: .utf8) ?? "[]"
+
+        // Escape for Zsh (we're using '-c' and wrapping in single quotes)
+        jsonString = jsonString.replacingOccurrences(of: "'", with: "'\\''")
+
+        return "'\(jsonString)'" // wrap entire thing in single quotes for shell
+    } catch {
+        print("Failed to encode appointments: \(error)")
+        return "'[]'"
+    }
+}
