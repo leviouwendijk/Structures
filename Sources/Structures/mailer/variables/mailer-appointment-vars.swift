@@ -22,6 +22,17 @@ public struct MailerAPIAppointmentVariables: Encodable {
     }
 }
 
+public enum MailerAPIAppointmentError: Error, CustomStringConvertible {
+    case cannotConstructDateFromComponents
+
+    public var description: String {
+        switch self {
+            case .cannotConstructDateFromComponents:
+            return "The dateComponents value for MailerAPIAppointmentContent cannot produce a valid date"
+        }
+    }
+}
+
 // content of appointment var 
 public struct MailerAPIAppointmentContent: Encodable, Identifiable {
     public let id:       UUID
@@ -32,6 +43,7 @@ public struct MailerAPIAppointmentContent: Encodable, Identifiable {
     public let number:   String
     public let area:     String
     public let location: String
+    public let dateComponents:  DateComponents
 
     public init(
         id:       UUID = UUID(),
@@ -41,7 +53,8 @@ public struct MailerAPIAppointmentContent: Encodable, Identifiable {
         street:   String,
         number:   String,
         area:     String,
-        location: String
+        location: String,
+        dateComponents:  DateComponents
     ) {
         self.id       = id
         self.date     = date
@@ -51,6 +64,15 @@ public struct MailerAPIAppointmentContent: Encodable, Identifiable {
         self.number   = number
         self.area     = area
         self.location = location
+        self.dateComponents = dateComponents
+    }
+
+    public func writtenDate() throws -> String? {
+        let calendar = Calendar.current
+        guard let date = calendar.date(from: dateComponents) else {
+            throw MailerAPIAppointmentError.cannotConstructDateFromComponents
+        }
+        return date.written()
     }
 }
 
