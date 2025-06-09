@@ -67,12 +67,12 @@ public struct MailerAPIAppointmentContent: Encodable, Identifiable {
         self.dateComponents = dateComponents
     }
 
-    public func writtenDate() throws -> String? {
+    public func writtenDate(in locale: WrittenDateLocale = .nl) throws -> String? {
         let calendar = Calendar.current
         guard let date = calendar.date(from: dateComponents) else {
             throw MailerAPIAppointmentError.cannotConstructDateFromComponents
         }
-        return date.written()
+        return date.written(in: locale)
     }
 }
 
