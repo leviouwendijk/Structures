@@ -55,14 +55,14 @@ public struct MailerAPIAppointmentContent: Encodable, Identifiable {
 }
 
 extension Array where Element == MailerAPIAppointmentContent {
-    public func jsonString() -> String {
-        appointmentsQueueToJSON(self)
+    public func jsonString() throws -> String {
+        try appointmentsQueueToJSON(self)
     }
 }
 
-public func appointmentsQueueToJSON(_ appointments: [MailerAPIAppointmentContent]) -> String {
+public func appointmentsQueueToJSON(_ appointments: [MailerAPIAppointmentContent]) throws -> String {
     let encoder = JSONEncoder()
-    do {
+    // do {
         let jsonData = try encoder.encode(appointments)
         var jsonString = String(data: jsonData, encoding: .utf8) ?? "[]"
 
@@ -70,8 +70,8 @@ public func appointmentsQueueToJSON(_ appointments: [MailerAPIAppointmentContent
         jsonString = jsonString.replacingOccurrences(of: "'", with: "'\\''")
 
         return "'\(jsonString)'" // wrap entire thing in single quotes for shell
-    } catch {
-        print("Failed to encode appointments: \(error)")
-        return "'[]'"
-    }
+    // } catch {
+    //     print("Failed to encode appointments: \(error)")
+    //     return "'[]'"
+    // }
 }
