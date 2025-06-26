@@ -1,6 +1,6 @@
 import Foundation
 
-enum DateDistanceUnit: String, CaseIterable {
+public enum DateDistanceUnit: String, CaseIterable {
     case days
     case months
     case years
