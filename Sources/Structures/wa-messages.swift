@@ -2,29 +2,33 @@ import Foundation
 import plate
 
 public enum WAMessageTemplate: String, Hashable, CaseIterable {
-    case called
+    // case called
     case calledVariationI
-    case calledVariationII
+    // case calledVariationII
     case losing
     case repeatedCalls
+    case repeatedCallsVariationI
     case follow
 
     public var title: String {
         switch self {
-            case .called:
-                return "Called"
+            // case .called:
+            //     return "Called"
 
             case .calledVariationI:
                 return "Called -- Variation I"
 
-            case .calledVariationII:
-                return "Called -- Variation II"
+            // case .calledVariationII:
+            //     return "Called -- Variation II"
 
             case .losing:
                 return "Losing"
 
             case .repeatedCalls:
                 return "Repeated Calls"
+
+            case .repeatedCallsVariationI:
+                return "Repeated Calls - Variation I"
 
             case .follow:
                 return "Generic Follow-up"
@@ -34,13 +38,16 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
 
     public var subtitle: String {
         switch self {
-            case .called, .calledVariationI, .calledVariationII:
+            // case .called, .calledVariationI, .calledVariationII:
+            //     return "Call attempt, \"do you need us?\"--check, prompt to call us"
+
+            case .calledVariationI:
                 return "Call attempt, \"do you need us?\"--check, prompt to call us"
 
             case .losing:
                 return "Call attempt, \"do you need us?\"--check"
 
-            case .repeatedCalls:
+            case .repeatedCalls, .repeatedCallsVariationI:
                 return "Repeated call attempts, \"do you need us?\"--check"
 
             case .follow:
@@ -50,18 +57,18 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
 
     public var message: String {
         switch self {
-        case .called:
-            return """
-            Hey {client},
+        // case .called:
+        //     return """
+        //     Hey {client},
 
-            Ik heb je gebeld, maar kon je niet bereiken. 
+        //     Ik heb je gebeld, maar kon je niet bereiken. 
 
-            Wil je weten of wij je kunnen helpen met het gedrag van {dog}? Bel mij dan even terug.
+        //     Wil je weten of wij je kunnen helpen met het gedrag van {dog}? Bel mij dan even terug.
             
-            Je kan me bereiken op dit nummer (+316 23 62 13 90).
+        //     Je kan me bereiken op dit nummer (+316 23 62 13 90).
 
-            —Casper | Hondenmeesters
-            """
+        //     —Casper | Hondenmeesters
+        //     """
 
         case .calledVariationI:
             return """
@@ -76,20 +83,19 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
             —Casper | Hondenmeesters
             """
 
-        case .calledVariationII:
-            return """
-            Hey {client},
+        // case .calledVariationII:
+        //     return """
+        //     Hey {client},
 
-            Ik heb je gebeld, maar kon je niet bereiken. 
+        //     Ik heb je gebeld, maar kon je niet bereiken. 
 
-            Graag spreek ik je nog even over {dog}.
+        //     Graag spreek ik je nog even over {dog}.
 
-            Je kan me terugbellen op dit nummer (+316 23 62 13 90).
+        //     Je kan me terugbellen op dit nummer (+316 23 62 13 90).
 
-            —Casper | Hondenmeesters
+        //     —Casper | Hondenmeesters
 
-            """
-
+        //     """
 
         case .losing:
             return """
@@ -109,6 +115,17 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
             Ik heb je enkele keren gebeld, maar kon je daarmee niet bereiken.
 
             Heb je geen hulp meer nodig met het gedrag van {dog}?
+
+            —Casper | Hondenmeesters
+            """
+
+        case .repeatedCallsVariationI:
+            return """
+            Hey {client},
+
+            Ik heb je enkele keren gebeld, maar kon je daarmee niet bereiken.
+
+            Als je onze hulp nog nodig hebt, laat het ons dan even weten.
 
             —Casper | Hondenmeesters
             """
