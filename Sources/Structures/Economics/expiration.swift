@@ -12,10 +12,6 @@ public struct ExpirationDateRange: Sendable {
         self.start = start
         self.end = end
     }
-
-    public var string: String {
-        return "\(start.formatted()) - \(end.formatted())"
-    }
 }
 
 public struct ExpirationSetting: Sendable {
