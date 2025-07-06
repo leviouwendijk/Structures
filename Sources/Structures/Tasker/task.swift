@@ -4,6 +4,8 @@ public enum TaskDepartment: String, CaseIterable, Identifiable {
     case marketing   = "Marketing"
     case development = "Development"
     case sales       = "Sales"
+    case service     = "Service"
+    case support     = "Support"
     case hr          = "HR"
     public var id: String { rawValue }
 }
