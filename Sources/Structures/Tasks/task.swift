@@ -8,7 +8,7 @@ public enum TaskDepartment: String, CaseIterable, Identifiable {
     public var id: String { rawValue }
 }
 
-public struct TaskProject: Identifiable {
+public struct TaskProject: Identifiable, Hashable {
     public let id: UUID
     public var name: String
 
