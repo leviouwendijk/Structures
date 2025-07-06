@@ -60,6 +60,8 @@ public enum TaskSortOption: String, CaseIterable, Identifiable {
     case urgencyAsc       = "Urgency ↑"
     case importanceDesc   = "Importance ↓"
     case importanceAsc    = "Importance ↑"
+    case urgencyThenImportance = "Urgency ↓ → Importance ↓"
+    case importanceThenUrgency = "Importance ↓ → Urgency ↓"
     case dateCreatedDesc  = "Created ↓"
     case dateCreatedAsc   = "Created ↑"
     case deadlineDesc     = "Deadline ↓"
