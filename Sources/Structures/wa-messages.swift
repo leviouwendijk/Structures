@@ -159,9 +159,9 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
                 Details: {detail}
                 Prijs (incl. btw): € {price}
 
-            Conform onze algemene voorwaarden (https://hondenmeesters.nl/algemene-voorwaarden.html) en privacy beleid (https://hondenmeesters.nl/privacy-beleid.html).
+                Conform onze algemene voorwaarden (https://hondenmeesters.nl/algemene-voorwaarden.html) en privacy beleid (https://hondenmeesters.nl/privacy-beleid.html).
 
-            Indien akkoord zullen wij de afspraken in onze agenda definitief maken en bevestigen, zowel als het bedrag factureren.
+            Zodra akkoord zullen wij de afspraken in onze agenda definitief maken en bevestigen, zowel als het bedrag factureren.
 
             Mocht je vragen of aanmerkingen hebben, leg deze dan gerust aan ons voor.
 
