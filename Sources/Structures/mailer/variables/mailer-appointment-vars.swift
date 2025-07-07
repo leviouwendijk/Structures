@@ -3,7 +3,7 @@ import Combine
 import SwiftUI
 import plate
 
-public struct MailerAPIAvailabilityVariables: Encodable {
+public struct MailerAPIAppointmentAvailabilityVariables: Encodable {
     public let name:          String
     public let dog:           String
     public let email:         String
