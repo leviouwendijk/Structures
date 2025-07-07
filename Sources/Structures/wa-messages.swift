@@ -9,6 +9,7 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
     case repeatedCalls
     case repeatedCallsVariationI
     case follow
+    case contract
 
     public var title: String {
         switch self {
@@ -32,6 +33,8 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
 
             case .follow:
                 return "Generic Follow-up"
+            case .contract:
+                return "Contractual agreement"
         }
     }
 
@@ -52,6 +55,9 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
 
             case .follow:
                 return "\"do you need us?\"--check"
+
+            case .contract:
+                return "\"confirm agreement to chosen service\""
         }
     }
 
@@ -139,6 +145,28 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
             Heb je geen hulp meer nodig voor {dog}?
 
             —Casper | Hondenmeesters
+            """
+
+        case .contract:
+            return """
+            Beste {client},
+
+            Graag ontvangen wij je schriftelijke bevestiging van het volgende:
+
+            Afname van het volgende aanbod:
+
+                Dienst: {deliverable}
+                Details: {detail}
+                Prijs (incl. btw): € {price}
+
+            Conform onze algemene voorwaarden (https://hondenmeesters.nl/algemene-voorwaarden.html) en privacy beleid (https://hondenmeesters.nl/privacy-beleid.html).
+
+            Indien akkoord zullen wij de afspraken in onze agenda definitief maken en bevestigen, zowel als het bedrag factureren.
+
+            Mocht je vragen of aanmerkingen hebben, leg deze dan gerust aan ons voor.
+
+            Hartelijke groet,
+            Het Hondenmeesters Team
             """
         }
     }
