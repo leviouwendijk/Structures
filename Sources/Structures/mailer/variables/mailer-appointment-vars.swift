@@ -3,6 +3,25 @@ import Combine
 import SwiftUI
 import plate
 
+public struct MailerAPIAvailabilityVariables: Encodable {
+    public let name:          String
+    public let dog:           String
+    public let email:         String
+    public let session_count: Int
+    
+    public init(
+        name: String,
+        dog: String,
+        email: String,
+        session_count: Int
+    ) {
+        self.name = name
+        self.dog = dog
+        self.email = email
+        self.session_count = session_count
+    }
+}
+
 public struct MailerAPIAppointmentVariables: Encodable {
     public let name:         String
     public let dog:          String
