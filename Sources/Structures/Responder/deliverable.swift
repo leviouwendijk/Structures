@@ -13,7 +13,7 @@ public struct AgreementDeliverableSessionDurationRange: Sendable {
     }
 
     public var str: String {
-        return "\(fromMinutes) - \(toMinutes)"
+        return "\(fromMinutes) - \(toMinutes) min."
     }
 }
 
@@ -30,7 +30,7 @@ public struct AgreementDeliverableSessions: Sendable {
     }
 
     public var str: String {
-        return "\(count) sessies, (\(duration.str))"
+        return "\(count) sessies, (± \(duration.str))"
     }
 }
 

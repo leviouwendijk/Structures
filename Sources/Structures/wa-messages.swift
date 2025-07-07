@@ -151,7 +151,7 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
             return """
             Beste {client},
 
-            Graag ontvangen wij je schriftelijke bevestiging van het volgende:
+            Graag ontvangen wij je schriftelijke bevestiging van het volgende ("ik ga akkoord" volstaat):
 
             Afname van het volgende aanbod:
 
