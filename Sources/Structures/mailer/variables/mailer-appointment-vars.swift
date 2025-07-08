@@ -8,17 +8,20 @@ public struct MailerAPIAppointmentAvailabilityVariables: Encodable {
     public let dog:           String
     public let email:         String
     public let session_count: Int
+    public let reflection: Bool
     
     public init(
         name: String,
         dog: String,
         email: String,
-        session_count: Int
+        session_count: Int,
+        reflection: Bool
     ) {
         self.name = name
         self.dog = dog
         self.email = email
         self.session_count = session_count
+        self.reflection = reflection
     }
 }
 
