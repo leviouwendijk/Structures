@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AgreementDeliverableSessionDurationRange: Sendable {
+public struct AgreementDeliverableSessionDurationRange: Encodable, Sendable {
     public var fromMinutes: Int
     public var toMinutes: Int
     
@@ -17,7 +17,7 @@ public struct AgreementDeliverableSessionDurationRange: Sendable {
     }
 }
 
-public struct AgreementDeliverableSessions: Sendable {
+public struct AgreementDeliverableSessions: Encodable, Sendable {
     public var count: Int
     public var duration: AgreementDeliverableSessionDurationRange
     
@@ -34,11 +34,11 @@ public struct AgreementDeliverableSessions: Sendable {
     }
 
     public var str: String {
-        return "\(count) \(self.label) (± \(duration.str))"
+        return "\(count) \(label) (± \(duration.str))"
     }
 }
 
-public struct AgreementDeliverable: Sendable {
+public struct AgreementDeliverable: Encodable, Sendable {
     public var name: String
     public var sessions: AgreementDeliverableSessions
     public var price: Double
