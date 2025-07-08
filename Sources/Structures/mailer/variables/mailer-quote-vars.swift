@@ -13,3 +13,19 @@ public struct MailerAPIQuoteVariables: Encodable {
         self.dog  = dog
     }
 }
+
+public struct MailerAPIQuoteAgreementComponentVariables: Encodable {
+    public let deliverable: String
+    public let detail: String
+    public let price: String
+    
+    public init(
+        deliverable: String,
+        detail: String,
+        price: String
+    ) {
+        self.deliverable = deliverable
+        self.detail = detail
+        self.price = price
+    }
+}

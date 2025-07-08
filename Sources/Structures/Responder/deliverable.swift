@@ -29,8 +29,12 @@ public struct AgreementDeliverableSessions: Sendable {
         self.duration = duration
     }
 
+    public var label: String {
+        SessionLabel(count: count).dutch
+    }
+
     public var str: String {
-        return "\(count) sessies, (± \(duration.str))"
+        return "\(count) \(self.label) (± \(duration.str))"
     }
 }
 
