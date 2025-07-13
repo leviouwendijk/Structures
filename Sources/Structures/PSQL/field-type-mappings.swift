@@ -14,7 +14,7 @@ public enum PSQLFieldTypeRegistryError: Error, LocalizedError {
 public struct PSQLFieldTypeRegistry {
     private static let mapping: [String: [String: PSQLType]] = [
         "captcha_tokens": [
-            "id":            .uuid,
+            "id":            .integer,
             "ip_address":    .text,
             "hashed_token":  .text,
             "expires_at":    .timestamptz,
