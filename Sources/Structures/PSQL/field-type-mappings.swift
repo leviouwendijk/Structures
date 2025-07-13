@@ -25,11 +25,11 @@ public struct PSQLFieldTypeRegistry {
         ],
     ]
 
-    public static func mapping(table: String) throws -> [String: PSQLType] {
-        if let table = mapping[table] {
+    public static func table(named name: String) throws -> [String: PSQLType] {
+        if let table = mapping[name] {
             return table
         } else {
-            throw PSQLFieldTypeRegistryError.noMapForSpecifiedTable(table)
+            throw PSQLFieldTypeRegistryError.noMapForSpecifiedTable(name)
         }
     }
 }
