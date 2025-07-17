@@ -20,19 +20,16 @@ public struct MailerAPIQuoteAgreementVariables: Encodable {
     public let dog:         String
     public let email:       String
     public let deliverable: AgreementDeliverable
-    public let includeQuote: Bool
     
     public init(
         name: String,
         dog: String,
         email: String,
-        deliverable: AgreementDeliverable,
-        includeQuote: Bool = false
+        deliverable: AgreementDeliverable
     ) {
         self.name = name
         self.dog = dog
         self.email = email
         self.deliverable = deliverable
-        self.includeQuote = includeQuote
     }
 }
