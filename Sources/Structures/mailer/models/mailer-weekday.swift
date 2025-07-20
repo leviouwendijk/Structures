@@ -1,6 +1,6 @@
 import Foundation
 
-public enum MailerAPIWeekday: String, RawRepresentable, CaseIterable, Identifiable, Encodable {
+public enum MailerAPIWeekday: String, RawRepresentable, CaseIterable, Identifiable, Codable {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
     public var id: String { rawValue }
 
