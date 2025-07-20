@@ -127,7 +127,7 @@ public enum GeneralizedLabel: String, RawRepresentable, Codable, CaseIterable, S
         return "generalized_\(rawValue)_label"
     }
 
-    func replacement(
+    public func replacement(
         count: Int,
         language: LanguageSpecifier = .dutch,
         syntax: PlaceholderSyntax = PlaceholderSyntax(prepending: "{{", appending: "}}")
