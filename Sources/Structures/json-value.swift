@@ -1,5 +1,22 @@
 import Foundation
 
+public enum JSONValueError: Error, LocalizedError, Sendable {
+    case typeMismatch(expected: String, actual: JSONValue)
+    case invalidCast(description: String)
+    case pathNotFound(path: String)
+
+    public var errorDescription: String? {
+        switch self {
+        case .typeMismatch(let expected, let actual):
+            return "Type mismatch: expected \(expected), got \(actual)."
+        case .invalidCast(let description):
+            return "Invalid cast: \(description)."
+        case .pathNotFound(let path):
+            return "JSON path not found: \(path)."
+        }
+    }
+}
+
 public enum JSONValue: Codable, Sendable {
     case string(String)
     case int(Int)
@@ -8,12 +25,6 @@ public enum JSONValue: Codable, Sendable {
     case array([JSONValue])
     case object([String: JSONValue])
     case null
-
-    public enum JSONValueError: Error {
-        case typeMismatch(expected: String, actual: JSONValue)
-        case invalidCast(description: String)
-        case pathNotFound(path: String)
-    }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
