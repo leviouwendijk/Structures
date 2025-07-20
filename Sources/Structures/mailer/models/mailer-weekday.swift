@@ -15,4 +15,8 @@ public enum MailerAPIWeekday: String, RawRepresentable, CaseIterable, Identifiab
             case .sunday: return "Zondag"
         }
     }
+
+    public var english: String {
+        return self.rawValue
+    }
 }
