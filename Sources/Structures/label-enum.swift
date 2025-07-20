@@ -122,4 +122,23 @@ public enum GeneralizedLabel: String, RawRepresentable, Codable, CaseIterable, S
         }
         return result
     }
+
+    public var placeholder: String {
+        return "generalized_\(rawValue)_label"
+    }
+
+    func replacement(
+        count: Int,
+        language: LanguageSpecifier = .dutch,
+        syntax: PlaceholderSyntax = PlaceholderSyntax(prepending: "{{", appending: "}}")
+    ) throws -> StringTemplateReplacement {
+        let text = try value(language: language, count: count)
+        let fullPlaceholder = syntax.set(for: placeholder)
+        return StringTemplateReplacement(
+            placeholders:     [fullPlaceholder],
+            replacement:      text,
+            initializer:      .manual,
+            placeholderSyntax: syntax
+        )
+    }
 }
