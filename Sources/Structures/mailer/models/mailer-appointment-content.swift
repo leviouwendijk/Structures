@@ -4,7 +4,7 @@ import Combine
 import plate
 
 // content of appointment var 
-public struct MailerAPIAppointmentContent: Encodable, Identifiable {
+public struct MailerAPIAppointmentContent: Codable, Identifiable {
     public let id:       UUID
     public let date:     String
     public let time:     String
