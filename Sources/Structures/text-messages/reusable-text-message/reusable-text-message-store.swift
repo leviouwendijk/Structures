@@ -53,4 +53,8 @@ public class ReusableTextMessageStore: ObservableObject {
     public func message(forKey key: String) -> ReusableTextMessage? {
         return messagesByKey[key]
     }
+
+    public var collection: [(key: String, value: ReusableTextMessage)] {
+        messagesByKey.sorted { $0.key < $1.key }
+    }
 }
