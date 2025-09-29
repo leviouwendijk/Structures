@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 // public struct ReusableTextMessageStore: Codable, Sendable {
 //     public var messages: [ReusableTextMessageObject]
