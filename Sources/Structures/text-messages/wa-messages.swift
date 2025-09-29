@@ -1,6 +1,7 @@
 import Foundation
 import plate
 
+@available(*, deprecated, message: "Create a ReusableTextMessageStore instead.")
 public enum WAMessageTemplate: String, Hashable, CaseIterable {
     // case called
     case calledVariationI
@@ -169,5 +170,45 @@ public enum WAMessageTemplate: String, Hashable, CaseIterable {
             Het Hondenmeesters Team
             """
         }
+    }
+
+    public func write() -> String {
+        return """
+        ReusableTextMessageObject(
+            key: "\(self.rawValue.snake())",
+            object: ReusableTextMessage(
+                title: \(title.escape(.line)),
+                details: \(subtitle.escape(.line)),
+                content: .init(
+                    subject: "",
+                    message: \"\"\"
+        \(message.indent(times: 3))
+                    \"\"\"
+                )
+            )
+        ),
+        """
+    }
+
+    public static func writeAll() -> String {
+        var array: [String] = []
+
+        for i in Self.allCases {
+            array.append(i.write())
+        }
+
+        return array.joined(separator: "\n")
+    }
+
+    public static func embed() -> String {
+        let msgs = self.writeAll()
+
+        return """
+        let messageStore: ReusableTextMessageStore = .init(
+            messages: [
+        \(msgs.indent(times: 2))
+            ]
+        )
+        """
     }
 }
