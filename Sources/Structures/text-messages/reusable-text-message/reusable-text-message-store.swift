@@ -25,7 +25,7 @@ import Combine
 public class ReusableTextMessageStore: ObservableObject {
     // @Published public var messages: [ReusableTextMessageObject]
 
-    private var messagesByKey: [String: ReusableTextMessage] = [:]
+    public var messagesByKey: [String: ReusableTextMessage] = [:]
     
     // public init(
     //     messages: [ReusableTextMessageObject] = []
