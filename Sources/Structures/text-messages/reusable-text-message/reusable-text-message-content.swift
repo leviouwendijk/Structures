@@ -1,8 +1,8 @@
 import Foundation
 
 public struct ReusableTextMessageContent: Codable, Sendable {
-    public let subject: String
-    public let message: String
+    public var subject: String
+    public var message: String
     
     public init(
         subject: String,
