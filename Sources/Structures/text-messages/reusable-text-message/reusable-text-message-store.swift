@@ -24,6 +24,8 @@ import Combine
 @MainActor
 public class ReusableTextMessageStore: ObservableObject {
     @Published public var messages: [ReusableTextMessageObject]
+
+    private var messagesByKey: [String: ReusableTextMessage] = [:]
     
     public init(
         messages: [ReusableTextMessageObject] = []
@@ -32,12 +34,22 @@ public class ReusableTextMessageStore: ObservableObject {
     }
 
     public func add(message: ReusableTextMessageObject) -> Void {
-        messages.append(message)
+        self.messages.append(message)
+        self.messagesByKey[message.key] = message.object
     }
 
     public func add(messages: [ReusableTextMessageObject]) -> Void {
-        for m in messages {
-            add(message: m)
-        }
+        // for m in messages {
+        //     add(message: m)
+        // }
+        self.messages.append(contentsOf: messages)
+        self.messagesByKey.merge(
+            messages.map { ($0.key, $0.object) },
+            uniquingKeysWith: { _, new in new }
+        )
+    }
+
+    public func message(forKey key: String) -> ReusableTextMessage? {
+        return messagesByKey[key]
     }
 }
