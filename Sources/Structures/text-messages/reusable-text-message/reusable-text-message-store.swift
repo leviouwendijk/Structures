@@ -23,18 +23,19 @@ import Combine
 
 @MainActor
 public class ReusableTextMessageStore: ObservableObject {
-    @Published public var messages: [ReusableTextMessageObject]
+    // @Published public var messages: [ReusableTextMessageObject]
 
     private var messagesByKey: [String: ReusableTextMessage] = [:]
     
-    public init(
-        messages: [ReusableTextMessageObject] = []
-    ) {
-        self.messages = messages
-    }
+    // public init(
+    //     messages: [ReusableTextMessageObject] = []
+    // ) {
+    //     self.messages = messages
+    // }
+    public init() {}
 
     public func add(message: ReusableTextMessageObject) -> Void {
-        self.messages.append(message)
+        // self.messages.append(message)
         self.messagesByKey[message.key] = message.object
     }
 
@@ -42,7 +43,7 @@ public class ReusableTextMessageStore: ObservableObject {
         // for m in messages {
         //     add(message: m)
         // }
-        self.messages.append(contentsOf: messages)
+        // self.messages.append(contentsOf: messages)
         self.messagesByKey.merge(
             messages.map { ($0.key, $0.object) },
             uniquingKeysWith: { _, new in new }
