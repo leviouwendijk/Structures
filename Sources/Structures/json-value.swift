@@ -162,4 +162,16 @@ public enum JSONValue: Codable, Sendable {
             throw JSONValueError.typeMismatch(expected: "Object", actual: self)
         }
     }
+
+    public func toAny() -> Any {
+        switch self {
+        case .null: return NSNull()
+        case .bool(let b): return b
+        case .int(let i): return i
+        case .double(let d): return d
+        case .string(let s): return s
+        case .array(let a): return a.map { $0.toAny() }
+        case .object(let o): return o.mapValues { $0.toAny() }
+        }
+    }
 }
