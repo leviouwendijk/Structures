@@ -1,5 +1,6 @@
 import Foundation
 
+@available(*, deprecated, message: "Direction primitive is defined in leviouwendijk/Accounting.git, use it instead.")
 public enum ValueDirectionError: Error, CustomStringConvertible, Sendable {
     case invalidCode(String)
 
@@ -11,6 +12,7 @@ public enum ValueDirectionError: Error, CustomStringConvertible, Sendable {
     }
 }
 
+@available(*, deprecated, message: "Direction primitive is defined in leviouwendijk/Accounting.git, use it instead.")
 public enum ValueDirection: String, Codable, Sendable {
     case debit
     case credit

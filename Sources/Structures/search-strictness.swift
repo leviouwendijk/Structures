@@ -1,5 +1,6 @@
 import Foundation
 
+// for fuzzy
 public enum SearchStrictness: Int, CaseIterable, Identifiable, Sendable {
     case exact = 0
     case strict = 2
