@@ -36,11 +36,11 @@
 
 import Foundation
 
-public actor FieldTypeRegistry {
+public actor PSQLFieldTypeRegistry {
     public typealias Table = String
     public typealias Key   = String
 
-    public static let shared = FieldTypeRegistry()
+    public static let shared = PSQLFieldTypeRegistry()
 
     // empty; populated by the Dataman binary at boot
     private var mapping: [Table: [Key: PSQLType]] = [:]
