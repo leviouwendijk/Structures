@@ -81,4 +81,6 @@ public enum PSQLType: Codable, Sendable, PreparableContent {
     public static func typeCast(_ type: PSQLType) -> String {
         return type.convert()
     }
+
+    public var sqlCast: String { Self.typeCast(self) }
 }
