@@ -1,4 +1,5 @@
 import Foundation
+import plate
 
 public enum JSONValueError: Error, LocalizedError, Sendable {
     case typeMismatch(expected: String, actual: JSONValue)
@@ -17,7 +18,7 @@ public enum JSONValueError: Error, LocalizedError, Sendable {
     }
 }
 
-public enum JSONValue: Codable, Sendable {
+public enum JSONValue: Codable, Sendable, PreparableContent {
     case string(String)
     case int(Int)
     case double(Double)

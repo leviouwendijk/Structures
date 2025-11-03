@@ -1,6 +1,7 @@
 import Foundation
+import plate
 
-public enum PSQLType: Codable, Sendable {
+public enum PSQLType: Codable, Sendable, PreparableContent {
     case smallInt                     // SMALLINT
     case integer                      // INTEGER
     case bigInt                       // BIGINT

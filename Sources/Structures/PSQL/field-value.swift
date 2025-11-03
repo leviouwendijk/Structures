@@ -1,6 +1,7 @@
 import Foundation
+import plate
 
-public struct FieldValue: Codable, Sendable {
+public struct FieldValue: Codable, Sendable, PreparableContent {
     public let value: JSONValue
     public let psqlType: PSQLType
 
