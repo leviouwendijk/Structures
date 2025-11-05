@@ -34,42 +34,44 @@
 //     }
 // }
 
-import Foundation
+// v2:
 
-public actor PSQLFieldTypeRegistry {
-    public typealias Table = String
-    public typealias Key   = String
+// import Foundation
 
-    public static let shared = PSQLFieldTypeRegistry()
+// public actor PSQLFieldTypeRegistry {
+//     public typealias Table = String
+//     public typealias Key   = String
 
-    // empty; populated by the Dataman binary at boot
-    private var mapping: [Table: [Key: PSQLType]] = [:]
+//     public static let shared = PSQLFieldTypeRegistry()
 
-    // READ
-    public func table(named name: String) throws -> [String: PSQLType] {
-        if let m = mapping[name] { return m }
-        throw Error.noMap(name)
-    }
+//     // empty; populated by the Dataman binary at boot
+//     private var mapping: [Table: [Key: PSQLType]] = [:]
 
-    // WRITE (idempotent by default)
-    public func register(table name: String, types: [String: PSQLType], overwrite: Bool = false) {
-        if overwrite || mapping[name] == nil { mapping[name] = types }
-    }
+//     // READ
+//     public func table(named name: String) throws -> [String: PSQLType] {
+//         if let m = mapping[name] { return m }
+//         throw Error.noMap(name)
+//     }
 
-    public func merge(table name: String, patch: [String: PSQLType]) {
-        var base = mapping[name] ?? [:]
-        for (k, v) in patch { base[k] = v }
-        mapping[name] = base
-    }
+//     // WRITE (idempotent by default)
+//     public func register(table name: String, types: [String: PSQLType], overwrite: Bool = false) {
+//         if overwrite || mapping[name] == nil { mapping[name] = types }
+//     }
 
-    public func snapshot() -> [Table: [Key: PSQLType]] { mapping }
+//     public func merge(table name: String, patch: [String: PSQLType]) {
+//         var base = mapping[name] ?? [:]
+//         for (k, v) in patch { base[k] = v }
+//         mapping[name] = base
+//     }
 
-    public enum Error: Swift.Error, LocalizedError {
-        case noMap(String)
-        public var errorDescription: String? {
-            switch self {
-            case .noMap(let t): return "No field-type map registered for table: \(t)"
-            }
-        }
-    }
-}
+//     public func snapshot() -> [Table: [Key: PSQLType]] { mapping }
+
+//     public enum Error: Swift.Error, LocalizedError {
+//         case noMap(String)
+//         public var errorDescription: String? {
+//             switch self {
+//             case .noMap(let t): return "No field-type map registered for table: \(t)"
+//             }
+//         }
+//     }
+// }

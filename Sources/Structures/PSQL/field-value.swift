@@ -1,12 +1,30 @@
 import Foundation
-import plate
 
-public struct FieldValue: Codable, Sendable, PreparableContent {
+// public struct FieldValue: Codable, Sendable {
+//     public let value: JSONValue
+//     public let psqlType: PSQLType
+
+//     public init(value: JSONValue, psqlType: PSQLType) {
+//         self.value = value
+//         self.psqlType = psqlType
+//     }
+// }
+
+import Foundation
+
+/// Generic field wrapper: a JSONValue plus an external type tag `T`.
+/// - use `T` to bind it to, say, PSQLType
+public struct FieldValue<T: Sendable>: Sendable {
     public let value: JSONValue
-    public let psqlType: PSQLType
+    public let type: T
 
-    public init(value: JSONValue, psqlType: PSQLType) {
+    @inlinable
+    public init(value: JSONValue, type: T) {
         self.value = value
-        self.psqlType = psqlType
+        self.type = type
     }
 }
+
+extension FieldValue: Codable where T: Codable { }
+// extension FieldValue: Equatable where T: Equatable { }
+// extension FieldValue: Hashable where T: Hashable { }
