@@ -19,7 +19,10 @@ public struct FieldValue<T: Sendable>: Sendable {
     public let type: T
 
     @inlinable
-    public init(value: JSONValue, type: T) {
+    public init(
+        value: JSONValue,
+        type: T
+    ) {
         self.value = value
         self.type = type
     }

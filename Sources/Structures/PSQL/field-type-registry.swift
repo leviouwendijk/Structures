@@ -7,8 +7,13 @@ public actor FieldTypeRegistry<Value: Sendable> {
 
     private var mapping: [Table: Map] = [:]
 
-    // READ
+    // Inits
+    public init() { }
+    public init(initial: [Table: Map]) {
+        self.mapping = initial
+    }
 
+    // READ
     /// Returns the entire map for a table.
     public func table(named name: String) throws -> Map {
         if let m = mapping[name] { return m }
@@ -43,7 +48,6 @@ public actor FieldTypeRegistry<Value: Sendable> {
     }
 
     // WRITE
-
     /// Set the full map for a table. Idempotent unless `overwrite` is true.
     public func set(table name: Table, to map: Map, overwrite: Bool = false) {
         if overwrite || mapping[name] == nil { mapping[name] = map }
@@ -97,7 +101,6 @@ public actor FieldTypeRegistry<Value: Sendable> {
     }
 
     // Errors
-
     public enum Error: Swift.Error, LocalizedError {
         case noMap(Table)
         case noKey(Table, Key)
