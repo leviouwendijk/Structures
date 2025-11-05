@@ -14,7 +14,7 @@ import Foundation
 
 /// Generic field wrapper: a JSONValue plus an external type tag `T`.
 /// - use `T` to bind it to, say, PSQLType
-public struct FieldValue<T: Sendable & Codable>: Sendable {
+public struct FieldValue<T: Sendable & Codable>: Codable, Sendable {
     public let value: JSONValue
     public let type: T
 
