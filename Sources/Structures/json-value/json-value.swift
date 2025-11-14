@@ -18,7 +18,7 @@ public enum JSONValueError: Error, LocalizedError, Sendable {
     }
 }
 
-public enum JSONValue: Codable, Sendable, PreparableContent {
+public enum JSONValue: Codable, Sendable {
     case string(String)
     case int(Int)
     case double(Double)
