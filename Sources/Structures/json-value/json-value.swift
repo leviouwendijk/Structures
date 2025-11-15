@@ -192,3 +192,10 @@ extension JSONValue {
         return json
     }
 }
+
+extension JSONValue {
+    public func `as`<T: Decodable>(_ type: T.Type) throws -> T {
+        let data = try JSONEncoder().encode(self)
+        return try JSONDecoder().decode(T.self, from: data)
+    }
+}
