@@ -34,7 +34,7 @@ public struct MailerAPIInvoiceVariables: Encodable {
         total:         String,
         termsTotal:    String,
         termsCurrent:  String,
-        includeInvoiceDocument: Bool
+        includeInvoiceDocument: Bool = true
     ) {
         self.name           = clientName
         self.client_name    = clientName
