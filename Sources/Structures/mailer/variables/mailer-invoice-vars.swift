@@ -20,6 +20,8 @@ public struct MailerAPIInvoiceVariables: Encodable {
 
     public var invoice_number: String
 
+    public var include_invoice_document: Bool
+
     public init(
         clientName:    String,
         email:         String,
@@ -31,7 +33,8 @@ public struct MailerAPIInvoiceVariables: Encodable {
         vatAmount:     String,
         total:         String,
         termsTotal:    String,
-        termsCurrent:  String
+        termsCurrent:  String,
+        includeInvoiceDocument: Bool
     ) {
         self.name           = clientName
         self.client_name    = clientName
@@ -47,6 +50,8 @@ public struct MailerAPIInvoiceVariables: Encodable {
         self.terms_current  = termsCurrent
 
         self.invoice_number = invoiceId
+
+        self.include_invoice_document = includeInvoiceDocument
      }
 
     // init with blank defaults
@@ -64,5 +69,6 @@ public struct MailerAPIInvoiceVariables: Encodable {
         self.terms_total    = ""
         self.terms_current  = ""
         self.invoice_number = ""
+        self.include_invoice_document = true
     }
 }
