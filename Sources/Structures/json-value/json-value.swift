@@ -18,6 +18,7 @@ public enum JSONValueError: Error, LocalizedError, Sendable {
     }
 }
 
+@available(*, message: "Being deprecated from Structures import, import Primitives library instead")
 public enum JSONValue: Codable, Sendable {
     case string(String)
     case int(Int)
