@@ -41,7 +41,7 @@ public enum GeneralizedLabelError: Error, CustomStringConvertible {
     }
 }
 
-public enum GeneralizedLabel: String, RawRepresentable, Codable, CaseIterable, Sendable {
+public enum GeneralizedLabel: String, RawRepresentable, Codable, CaseIterable, Sendable, StringParsableEnum {
     case session
     case appointment
 

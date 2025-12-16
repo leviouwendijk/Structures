@@ -1,5 +1,5 @@
 {
-  "originHash" : "fcb2166676129c09b936df7633cdc6fb5785de751915d03c817584a9d9f2e178",
+  "originHash" : "3de64abeeec00bcdf35b3e0bf5fa758a6276d93ae541c252b774baecad4dcd87",
   "pins" : [
     {
       "identity" : "plate",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/leviouwendijk/plate.git",
       "state" : {
         "branch" : "master",
-        "revision" : "53f7bb1ffc15a13cb815d6a3ed8128d8b8dab960"
+        "revision" : "04c78107b3f4907460c786500be14997563e72d2"
       }
     }
   ],
