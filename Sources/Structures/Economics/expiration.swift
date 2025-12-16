@@ -1,6 +1,7 @@
 import Foundation
 import plate
 
+@available(*, message: "replaced by plate.DateRange")
 public struct ExpirationDateRange: Sendable {
     public let start: Date
     public let end: Date
@@ -14,6 +15,7 @@ public struct ExpirationDateRange: Sendable {
     }
 }
 
+@available(*, message: "replaced by plate.DateRange")
 public struct ExpirationSetting: Sendable {
     public let dates: ExpirationDateRange
 
