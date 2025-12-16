@@ -1,5 +1,6 @@
 import Foundation
 
+@available(*, message: "FieldTypeRegistry now moved to plate")
 public actor FieldTypeRegistry<Value: Sendable> {
     public typealias Table = String
     public typealias Key   = String

@@ -1,6 +1,7 @@
 import Foundation
 import plate
 
+@available(*, message: "moved to plate")
 public enum DateDistanceUnitError: Error, LocalizedError, Sendable {
     case combinedUnsupported
 
@@ -12,6 +13,7 @@ public enum DateDistanceUnitError: Error, LocalizedError, Sendable {
     }
 }
 
+@available(*, message: "moved to plate")
 public enum DateDistanceUnit: String, CaseIterable, Sendable {
     case days
     case weeks
@@ -51,6 +53,7 @@ public enum DateDistanceUnit: String, CaseIterable, Sendable {
     }
 }
 
+@available(*, message: "moved to plate")
 public struct StandardDateFormatter {
     public static var postgres: ISO8601DateFormatter {
         let fmt = ISO8601DateFormatter()
@@ -63,6 +66,7 @@ public struct StandardDateFormatter {
     }
 }
 
+@available(*, message: "moved to plate")
 public extension Date {
     var postgresTimestamp: String {
         StandardDateFormatter.postgres.string(from: self)

@@ -12,8 +12,10 @@ import Foundation
 
 import Foundation
 
+
 /// Generic field wrapper: a JSONValue plus an external type tag `T`.
 /// - use `T` to bind it to, say, PSQLType
+@available(*, message: "Decoupled from JSONValue (requires new type passage), and moved to plate")
 public struct FieldValue<T: Sendable & Codable>: Codable, Sendable {
     public let value: JSONValue
     public let type: T
