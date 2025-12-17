@@ -20,6 +20,11 @@ let package = Package(
             url: "https://github.com/leviouwendijk/plate.git",
             branch: "master"
         ),
+
+        // .package(
+        //     url: "https://github.com/leviouwendijk/Variables.git",
+        //     branch: "master"
+        // ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -28,6 +33,7 @@ let package = Package(
             name: "Structures",
             dependencies: [
                 .product(name: "plate", package: "plate"),
+                // .product(name: "Variables", package: "Variables"),
             ],
             resources: [
                 .process("Resources")
