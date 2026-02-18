@@ -34,12 +34,30 @@ public func requestContactsAccess() async throws {
 
 public func fetchContacts() throws -> [CNContact] {
     let store = CNContactStore()
+
     let keys: [CNKeyDescriptor] = [
-        CNContactGivenNameKey,
-        CNContactFamilyNameKey,
-        CNContactEmailAddressesKey,
-        CNContactPostalAddressesKey
-    ] as [CNKeyDescriptor]
+        CNContactIdentifierKey as CNKeyDescriptor,
+
+        // search + display basics
+        CNContactGivenNameKey as CNKeyDescriptor,
+        CNContactFamilyNameKey as CNKeyDescriptor,
+        CNContactEmailAddressesKey as CNKeyDescriptor,
+
+        // Formatter safety 
+        CNContactMiddleNameKey as CNKeyDescriptor,
+        CNContactNamePrefixKey as CNKeyDescriptor,
+        CNContactNameSuffixKey as CNKeyDescriptor,
+        CNContactNicknameKey as CNKeyDescriptor,
+
+        CNContactPostalAddressesKey as CNKeyDescriptor,
+    ]
+
+    // let keys: [CNKeyDescriptor] = [
+    //     CNContactGivenNameKey,
+    //     CNContactFamilyNameKey,
+    //     CNContactEmailAddressesKey,
+    //     CNContactPostalAddressesKey
+    // ] as [CNKeyDescriptor]
     
     let request = CNContactFetchRequest(keysToFetch: keys)
     var results: [CNContact] = []
