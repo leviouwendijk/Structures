@@ -30,7 +30,8 @@ public struct QuotePayload: MailerAPIPayload {
         let quotePath = try MailerAPIEnvironment.require(.quotePath)
         let quote = try MailerAPIEmailAttachment(path: quotePath)
 
-        if attachments == nil && (endpoint.base == .issue || includeQuote) {
+        if (endpoint.base == .issue || includeQuote) {
+        // if attachments == nil && (endpoint.base == .issue || includeQuote) {
             attach.add(quote)
         }
 
