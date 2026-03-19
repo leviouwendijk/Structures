@@ -1,5 +1,6 @@
 import Foundation
 import plate
+import Primitives
 
 public struct GeneralizedLabelGrammarSpecification: Codable, Sendable {
     public let language: LanguageSpecifier

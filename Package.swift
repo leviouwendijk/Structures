@@ -21,6 +21,11 @@ let package = Package(
             branch: "master"
         ),
 
+        .package(
+            url: "https://github.com/leviouwendijk/Primitives.git",
+            branch: "master"
+        ),
+
         // .package(
         //     url: "https://github.com/leviouwendijk/Variables.git",
         //     branch: "master"
@@ -33,6 +38,7 @@ let package = Package(
             name: "Structures",
             dependencies: [
                 .product(name: "plate", package: "plate"),
+                .product(name: "Primitives", package: "Primitives"),
                 // .product(name: "Variables", package: "Variables"),
             ],
             resources: [
