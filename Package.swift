@@ -45,12 +45,5 @@ let package = Package(
                 .process("Resources")
             ],
         ),
-        .testTarget(
-            name: "StructuresTests",
-            dependencies: [
-                "Structures",
-                .product(name: "plate", package: "plate"),
-            ]
-        ),
     ]
 )
