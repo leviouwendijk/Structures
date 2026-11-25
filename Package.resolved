@@ -4,7 +4,7 @@
     {
       "identity" : "indentation",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Indentation.git",
+      "location" : "https://github.com/swift-lco/Indentation.git",
       "state" : {
         "branch" : "master",
         "revision" : "8b85325433aa97ee19c9c77f564500be189978d6"
@@ -13,7 +13,7 @@
     {
       "identity" : "path",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Path.git",
+      "location" : "https://github.com/swift-lco/Path.git",
       "state" : {
         "branch" : "master",
         "revision" : "2617c9ceebfedd886f9dae31fe5646474bdf3cff"
@@ -31,7 +31,7 @@
     {
       "identity" : "primitives",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Primitives.git",
+      "location" : "https://github.com/swift-lco/Primitives.git",
       "state" : {
         "branch" : "master",
         "revision" : "42cf1a8d38e7223c07339787a7616c0348169a85"
@@ -40,7 +40,7 @@
     {
       "identity" : "strings",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Strings.git",
+      "location" : "https://github.com/swift-lco/Strings.git",
       "state" : {
         "branch" : "master",
         "revision" : "86a939d7bbb3e25808f88fbcedcee4069a5a5ae1"
@@ -49,7 +49,7 @@
     {
       "identity" : "terminal",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Terminal.git",
+      "location" : "https://github.com/swift-lco/Terminal.git",
       "state" : {
         "branch" : "master",
         "revision" : "972943a2d925f8ba4bebf99c1af590de8fe896e0"
@@ -58,7 +58,7 @@
     {
       "identity" : "version",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/leviouwendijk/Version.git",
+      "location" : "https://github.com/swift-lco/Version.git",
       "state" : {
         "branch" : "master",
         "revision" : "a7eeda6e3b84eca36f61366e5d420787c9aba69f"

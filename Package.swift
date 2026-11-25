@@ -22,12 +22,12 @@ let package = Package(
         ),
 
         .package(
-            url: "https://github.com/leviouwendijk/Primitives.git",
+            url: "https://github.com/swift-lco/Primitives.git",
             branch: "master"
         ),
 
         // .package(
-        //     url: "https://github.com/leviouwendijk/Variables.git",
+        //     url: "https://github.com/swift-lco/Variables.git",
         //     branch: "master"
         // ),
     ],
